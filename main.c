@@ -9,10 +9,66 @@
 
 int main() {
 
-  screen s;
-  struct matrix *edges;
+  struct matrix *d, *m, *x;
+     d = new_matrix(4,4);
+     m = new_matrix(4,7);
+     x = new_matrix(4,4);
 
-  edges = new_matrix(4, 4);
+     //test
 
-  free_matrix( edges );
-}  
+     printf("Identity Matrix: \n");
+     ident(d);
+     print_matrix(d);
+
+     printf("\n");
+
+     printf("Random Matrix:\n");
+
+     int i, j;
+     int n = rand() % 100;
+
+     for (i = 0; i < m->rows; i++){
+
+         for (j = 0; j < m->cols; j++){
+             m->m[i][j] = n;
+             n = rand() % 100;
+         }
+
+     }
+     print_matrix(m);
+
+     printf("\n");
+
+
+     printf("Scalar Multiplication of the Random Matrix and 2\n");
+     scalar_mult(2,m);
+     print_matrix(m);
+
+     printf("\n");
+
+     printf("Multiply by Identity Matrix\n");
+     matrix_mult(d,m);
+     print_matrix(m);
+
+     printf("\n");
+
+     printf("Second Random Matrix\n");
+     int a, b;
+
+     for (a = 0; a < x->rows; a++){
+
+         for (b = 0;b < x->cols; b++){
+             x->m[a][b] = n;
+             n = rand() % 100;
+         }
+
+     }
+     print_matrix(x);
+     printf("\n");
+
+
+     printf("Product of both random matrices\n");
+     matrix_mult(x,m);
+     print_matrix(m);
+
+}

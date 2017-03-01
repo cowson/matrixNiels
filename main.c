@@ -71,4 +71,27 @@ int main() {
      matrix_mult(x,m);
      print_matrix(m);
 
+     //drawing functions
+     color c;
+
+      c.red = 250;
+      c.green = 250;
+      c.blue = 250;
+     screen s;
+       struct matrix *edges= new_matrix(4,4);
+         add_edge(edges, 100, 50, 50, 50, 100, 100);
+         add_edge(edges, 100, 200, 150, 100, 50, 200);
+         add_point(edges, 50,50,50);
+
+
+         draw_lines(edges, s, c);
+
+
+         display(s);
+
+         free_matrix( edges );
+
+
+
+
 }
